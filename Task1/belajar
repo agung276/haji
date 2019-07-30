@@ -1,0 +1,53 @@
+import React, { Component } from 'react';
+import { AppRegistry, 
+  View, Text, StyleSheet,Image, Button
+} from 'react-native';
+
+
+export default class AlignItemsBasics extends Component {
+  state={
+    count:0
+  }
+  render() {
+    const{count}=this.state;
+    let pic={
+      uri:'https://source.unsplash.com/daily'
+    }
+    
+    return (
+      <View style={styles.welcome}>
+        
+          <Text>open app.js to working aplication</Text>
+          <Image source={pic} style={{height:100, width:150}}/>        
+          <Nama name="devindo"></Nama>
+          <Button title="+" onPress={()=> this.setState({count:this.state.count +1})} />
+          <Text>{this.state.count}</Text>
+          <Button title="-" onPress={()=> this.setState({count:this.state.count -1})}  />
+      </View>
+    );
+  }
+}
+
+class Nama extends Component{
+  render(){
+    return(
+      <Text> {this.props.name}</Text>
+    )
+  }
+}
+
+const styles=StyleSheet.create({
+  welcome:{
+    flex:1,
+    backgroundColor:'yellow',
+    justifyContent:'center',
+    alignItems:'center'
+  },
+ 
+  
+  
+})
+
+
+// skip this line if using Create React Native App
+AppRegistry.registerComponent('AwesomeProject', () => AlignItemsBasics);
