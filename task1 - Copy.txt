@@ -1,0 +1,128 @@
+import React, { Component } from 'react';
+import { AppRegistry, 
+  View, Text, StyleSheet, Image,
+TextInput,
+Button,
+} from 'react-native';
+
+
+export default class AlignItemsBasics extends Component {
+  constructor(){
+    super()
+    this.buttonPressed = this.buttonPressed.bind(this)
+    this.state={}
+    this.state.Customstyles={color:'red'}
+    
+    setInterval(()=>{
+      if(this.state.Customstyles.color=='red'){
+        this.setState({
+          Customstyles:{
+            color:'green'
+          }
+        })
+      }  else {
+        this.setState({
+          Customstyles:{
+            color:'red'
+          }
+        })
+      }
+     
+    },1000 )  
+  }
+  buttonPressed(){
+    
+  }
+  render() {
+    const imageInfo={
+      uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'
+    }
+    return (
+      // Try setting `alignItems` to 'flex-start'
+      // Try setting `justifyContent` to `flex-end`.
+      // Try setting `flexDirection` to `row`.
+      <View style={{
+        flex: 1,
+        flexDirection: 'column',
+        // justifyContent: 'space-between',
+        // alignItems: 'stretch',
+        // backgroundColor:'red',       
+      }}>
+        <View style={styles.container1}>
+          {/* <Text style={styles.welcome}>Header</Text> */}
+          <Image
+          style={{width: 450, height:210,alignSelf:'center'}}
+          source={imageInfo}
+        />
+        </View>     
+
+        <View style={styles.container2}>
+          <View style={styles.container21}>
+          <Text style={[styles.welcome, this.state.Customstyles]}>Body</Text>             
+          </View>
+          <View style={styles.container22}>
+          <Text style={[styles.welcome, this.state.Customstyles]}>Body</Text>             
+          </View>
+        </View>         
+
+        <View style={styles.container3}>
+          {/* <Text style={styles.welcome}>Footer</Text> */}
+          <Text>Username</Text>
+          <TextInput/>
+          <Text>Password</Text>
+          <TextInput />
+          <Button title={"LOGIN"} onPress={this.buttonPressed}/>
+
+
+        </View>     
+             
+        
+     </View>
+
+     
+    );
+  }
+}
+const styles=StyleSheet.create({
+  
+  container1:{
+    flex:1,
+    backgroundColor:'red',
+    justifyContent:'center'
+  },  
+  container2:{
+    backgroundColor:'yellow',
+    flex:1,    
+    justifyContent:'center',
+    flexDirection:'row'
+  },
+
+  container21:{
+    backgroundColor:'purple',
+    flex:1,    
+    justifyContent:'center'
+  },
+ 
+  container22:{
+    backgroundColor:'grey',
+    flex:1,    
+    justifyContent:'center'
+  },
+
+  welcome:{
+alignSelf:'center',
+fontSize: 35,
+color:'grey'
+  },
+
+  container3:{
+    // backgroundColor:'green',
+    flex:1,    
+    justifyContent:'center'
+  }
+  
+})
+
+
+// skip this line if using Create React Native App
+AppRegistry.registerComponent('AwesomeProject', () => AlignItemsBasics);
