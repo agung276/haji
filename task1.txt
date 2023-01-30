@@ -1,5 +1,5 @@
 ganti tulisan
-
+asal
 import React, { Component } from 'react';
 import { AppRegistry, 
   View, Text, StyleSheet, Image,
